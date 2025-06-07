@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.show-more-less-clickable:hover {
+  cursor: pointer;
+}
+
+.show-more-less-clickable {
+  color: aqua;
+  text-decoration: underline;
+}
+
+.delButSearch {
+  cursor: pointer !important;
+}
+
+.handelSlider {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.slick-next {
+  right: 0px !important;
+}
+
+.slick-prev {
+  left: 0px !important;
+}
+
+.cardSe {
+  cursor: pointer !important;
+}
+.moveEnd .flex {
+  justify-content: center !important;
+  align-items: center !important;
+  display: flex !important;
+  width: 100% !important;
+}
