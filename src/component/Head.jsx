@@ -3,11 +3,11 @@ import {
   Navbar,
   Collapse,
   Button,
-  IconButton,
+  
   Avatar,
 } from "@material-tailwind/react";
 import { BiMoviePlay } from "react-icons/bi";
-import { FaSearch, FaSun, FaMoon } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -23,30 +23,17 @@ import { getMoviesPage } from "../SystmeRdx/Slices/moviesSlices/moviesSlice";
 const Head = () => {
   const [openNav, setOpenNav] = useState(false);
   const [searchValue, setSearchValue] = useState("");
-  const [isDark, setIsDark] = useState(false);
   const { moviesSearch, changeButtonMovieToSeries, seriesSearch } = useSelector(
     (state) => state.aboutSearchMovie,
   );
 
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getMoviesPage());
-    // Initial theme check
-    const currentTheme = localStorage.getItem("theme");
-    setIsDark(currentTheme === "dark");
-  }, [dispatch]);
 
-  const toggleTheme = () => {
-    if (isDark) {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-      setIsDark(false);
-    } else {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-      setIsDark(true);
-    }
-  };
+    // Initial theme check
+  useEffect(() => {
+  dispatch(getMoviesPage());
+  document.documentElement.classList.add("dark");
+}, [dispatch]);
 
   const handleSearchChange = (e) => {
     setSearchValue(e.target.value);
@@ -151,18 +138,7 @@ const navList = (
                 Clear
               </Button>
             )}
-            <IconButton
-              variant="text"
-              onClick={toggleTheme}
-              className="ml-1 rounded-xl bg-white/5 text-white hover:bg-white/10 transition-all duration-300"
-              title="Toggle Theme"
-            >
-              {isDark ? (
-                <FaSun size={20} className="text-yellow-500" />
-              ) : (
-                <FaMoon size={20} className="text-gray-700" />
-              )}
-            </IconButton>
+         
           </div>
         </div>
       </div>
