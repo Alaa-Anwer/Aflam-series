@@ -29,16 +29,9 @@ const App = () => {
     console.warn = () => {};
   }
 
-  useEffect(() => {
-    // Check for saved theme or default to light
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, []);
+useEffect(() => {
+  document.documentElement.classList.add("dark");
+}, []);
 
   return (
     <div className="min-h-screen w-full bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
